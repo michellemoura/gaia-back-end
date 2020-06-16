@@ -27,5 +27,10 @@ module.exports = {
   async delete(req, res) {
     await User.findByIdAndDelete(req.params.id);
     return res.send();
+  },
+
+  async login(req, res) {
+    const resp = await User.find({...req.body});
+    return res.send(resp.length > 0);
   }
 }
