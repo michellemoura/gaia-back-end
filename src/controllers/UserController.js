@@ -30,7 +30,7 @@ module.exports = {
   },
 
   async login(req, res) {
-    const resp = await User.find({...req.body});
-    return res.send(resp.length > 0);
+    const resp = await User.findOne({...req.body});
+    return res.send(resp);
   }
 }
